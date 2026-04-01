@@ -6,7 +6,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 
-const path = require('path')
+const path = require('path');
 
 const ejsMate = require('ejs-mate');
 
