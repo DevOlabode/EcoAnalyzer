@@ -1,7 +1,7 @@
 const JoiBase = require('joi');
 const sanitizeHtml = require('sanitize-html');
 
-// ✅ Extend Joi to add stringEscapeHtml type
+// Extend Joi to add stringEscapeHtml type
 const Joi = JoiBase.extend((joi) => ({
   type: 'stringEscapeHtml',
   base: joi.string(),
@@ -24,7 +24,7 @@ const Joi = JoiBase.extend((joi) => ({
   },
 }));
 
-// ✅ Full Product Schema (Used After AI Analysis)
+// Full Product Schema (Used After AI Analysis)
 module.exports.productSchema = Joi.object({
   name: Joi.stringEscapeHtml().escape().required(),
   brand: Joi.stringEscapeHtml().escape().allow(''),
@@ -44,7 +44,7 @@ module.exports.productSchema = Joi.object({
   }).required()
 }).required();
 
-// ✅ Product Input Schema (Before AI Processing)
+//  Product Input Schema (Before AI Processing)
 module.exports.productInputSchema = Joi.object({
   name: Joi.stringEscapeHtml().escape().required(),
   brand: Joi.stringEscapeHtml().escape().allow(''),

@@ -62,7 +62,7 @@ mongoose.connect(process.env.DB_URL)
     console.log("Mongo Connection Open");
   })
   .catch((err) => {
-    console.log("Error", err);
+    console.log("Error connecting to MongoDB", err.message);
   });
 
 app.set('views', path.join(__dirname, 'views'));
