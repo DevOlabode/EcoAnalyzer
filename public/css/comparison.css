@@ -1,247 +1,172 @@
-/* Comparison Page Styles */
+/* ============================================================
+   EcoAnalyzer — Comparison Page
+   ============================================================ */
 
 .comparison-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 24px;
+    padding: 40px 24px;
 }
 
 .comparison-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
 }
 
 .comparison-header h1 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
-    margin-bottom: 16px;
-    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
 }
 
-.comparison-header p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
+.comparison-header p { color: var(--text-muted); font-size: 1rem; }
 
 .product-selection {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
     margin-bottom: 32px;
 }
 
+@media (max-width: 768px) { .product-selection { grid-template-columns: 1fr; } }
+
 .product-column {
-    flex: 1;
-    background: var(--card-background);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 24px;
-    box-shadow: var(--shadow);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
 }
 
 .product-column h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
+    margin: 0;
+    display: flex; align-items: center; gap: 8px;
 }
 
-.product-list {
-    list-style: none;
-    padding: 0;
+.product-column h3::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-brand);
+    flex-shrink: 0;
 }
 
-.product-item {
-    background: var(--background-color);
-    margin-bottom: 12px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    cursor: pointer;
-    transition: var(--transition);
-}
+.product-list { list-style: none; padding: 8px; max-height: 400px; overflow-y: auto; }
+
+.product-item { margin-bottom: 4px; }
 
 .product-label {
-    display: block;
-    padding: 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 14px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
     cursor: pointer;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
+    transition: var(--transition-fast);
+    background: var(--surface);
 }
 
-.product-label:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+.product-label:hover { border-color: var(--primary); background: var(--primary-subtle); }
+
+input[type="radio"]:checked + .product-label {
+    border-color: var(--primary);
+    background: var(--primary-subtle);
+    box-shadow: var(--shadow-glow);
 }
 
-.product-item input[type="radio"]:checked + label {
-    background: var(--surface-color);
-    border-left: 4px solid var(--primary-color);
+[data-theme="dark"] input[type="radio"]:checked + .product-label {
+    background: var(--primary-subtle);
+    border-color: var(--primary);
 }
 
-.product-name {
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-}
+.product-name { font-weight: 600; font-size: 0.9rem; color: var(--text-heading); }
+.product-details { display: flex; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
+.product-details span { font-size: 0.75rem; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
 
-.product-details {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.compare-button-container {
-    text-align: center;
-    margin-top: 32px;
-}
+.compare-button-container { text-align: center; }
 
 .btn-compare {
-    background: var(--gradient-primary);
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 40px;
+    background: var(--gradient-brand);
+    color: #fff;
     border: none;
-    color: white;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    border-radius: var(--border-radius);
+    border-radius: var(--radius-lg);
+    font-size: 1rem; font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
-    box-shadow: var(--shadow);
-    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(22,163,74,0.3);
+    letter-spacing: -0.01em;
 }
 
-.btn-compare:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+.btn-compare:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(22,163,74,0.4);
 }
 
 .btn-compare:disabled {
-    background: var(--text-secondary);
+    opacity: 0.4;
     cursor: not-allowed;
     transform: none;
-    box-shadow: none;
 }
 
-@media (max-width: 768px) {
-    .product-selection {
-        flex-direction: column;
-    }
-
-    .comparison-header h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Result Page Styles */
-
-.result-container {
-    max-width: 1200px;
+/* Comparison Result */
+.comparison-result {
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 24px;
+    padding: 40px 24px;
 }
 
 .result-header {
     text-align: center;
+    margin-bottom: 40px;
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     margin-bottom: 32px;
 }
 
-.result-header h1 {
-    color: var(--primary-color);
-    font-size: 2.5rem;
+@media (max-width: 768px) { .result-grid { grid-template-columns: 1fr; } }
+
+.result-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.result-card-header {
+    padding: 16px 20px;
+    background: var(--gradient-brand);
+    color: #fff;
+}
+
+.result-card-header h3 { color: #fff; font-size: 1rem; font-weight: 700; }
+.result-card-body { padding: 20px; }
+
+.winner-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px;
+    background: var(--primary-subtle);
+    color: var(--primary-dark);
+    border-radius: var(--radius-full);
+    font-size: 0.8125rem; font-weight: 700;
     margin-bottom: 16px;
-    font-weight: 700;
 }
 
-.result-header p {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-}
-
-.products-comparison {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 32px;
-}
-
-.product-result {
-    flex: 1;
-    background: var(--card-background);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 24px;
-    box-shadow: var(--shadow);
-}
-
-.product-result h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.eco-score {
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.strengths h4, .weaknesses h4 {
-    color: var(--primary-color);
-    margin-bottom: 12px;
-    font-weight: 600;
-}
-
-.strengths ul, .weaknesses ul {
-    list-style: none;
-    padding: 0;
-}
-
-.strengths li, .weaknesses li {
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.strengths li:before {
-    content: "✓ ";
-    color: var(--primary-color);
-}
-
-.weaknesses li:before {
-    content: "✗ ";
-    color: #dc3545;
-}
-
-.verdict {
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 24px;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-.verdict h2 {
-    color: var(--accent-color);
-    margin-bottom: 16px;
-    font-weight: 600;
-}
-
-.verdict p {
-    color: var(--text-primary);
-    font-size: 1.1rem;
-}
-
-@media (max-width: 768px) {
-    .products-comparison {
-        flex-direction: column;
-    }
-
-    .result-header h1 {
-        font-size: 2rem;
-    }
-}
+[data-theme="dark"] .winner-badge { background: var(--primary-subtle); color: var(--primary-light); }

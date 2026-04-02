@@ -1,131 +1,100 @@
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar fixed-top">
-    <div class="container-fluid px-3">
-        <a class="navbar-brand d-flex align-items-center text-decoration-none" href="/" style="font-weight: 600; font-size: 20px;">
-            <img src="https://trityenviro.com/assets/setting/environmental-impact-assessment-eia-online1.png" width="36" height="36" class="me-2 rounded-circle border border-2">
-            <span>EcoAnalyzer</span>
+<nav class="custom-navbar navbar navbar-expand-lg">
+    <div class="container-fluid px-0">
+        <a class="navbar-brand" href="/">
+            <div class="navbar-brand-icon">
+                <i class="fas fa-leaf"></i>
+            </div>
+            EcoAnalyzer
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler ms-auto me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars" style="font-size:0.9rem; color: var(--text-body);"></i>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-home me-1 icon-green">
-                            <path fill-rule="evenodd" d="M8 3.293l6 6V13a1 1 0 01-1 1h-3v-3H6v3H3a1 1 0 01-1-1v-3.707l6-6z"></path>
-                        </svg>
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/form">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-search me-1 icon-green">
-                            <path fill-rule="evenodd" d="M11.742 10.344a6.5 6.5 0 111.397-1.398l3.85 3.85a1 1 0 01-1.414 1.414l-3.85-3.85zM12 6.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"></path>
-                        </svg>
-                        Analyze Product
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/form/all-products">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-list-unordered me-1 icon-green">
-                            <path fill-rule="evenodd" d="M2 3.5a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h11a.5.5 0 010 1h-11a.5.5 0 01-.5-.5z"></path>
-                        </svg>
-                        All Products
-                    </a>
-                </li>
-
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav me-auto ms-3">
                 <% if(currentUser){ %>
                 <li class="nav-item">
-                    <a class="nav-link" href="/dashboard/impact">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-graph me-1 icon-green">
-                            <path fill-rule="evenodd" d="M0 0h1v15H0V0zm2 10h1v5H2v-5zm2-4h1v9H4V6zm2-2h1v11H6V4zm2-2h1v13H8V2zm2-2h1v15h-1V0z"></path>
-                        </svg>
-                        Impact Dashboard
+                    <a class="nav-link" href="/form/all-products">
+                        <i class="fas fa-database" style="font-size:0.8rem;"></i>
+                        Products
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">
+                        <i class="fas fa-chart-bar" style="font-size:0.8rem;"></i>
+                        Dashboard
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/compare">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-balance-scale me-1 icon-green">
-                            <path fill-rule="evenodd" d="M8 1a1 1 0 00-1 1v1H4a1 1 0 00-1 1v1h10V4a1 1 0 00-1-1H9V2a1 1 0 00-1-1zM3 7v1h10V7H3zm1 2v5h1v-5H4zm6 0v5h1v-5h-1z"></path>
-                        </svg>
-                        Compare Products
+                        <i class="fas fa-balance-scale" style="font-size:0.8rem;"></i>
+                        Compare
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/voiceInput/ai">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-unmute me-1 icon-green">
-                            <path fill-rule="evenodd" d="M8 2.75a.75.75 0 00-1.5 0v10.5a.75.75 0 001.5 0V2.75zM4.5 4.5a.75.75 0 00-1.5 0v7a.75.75 0 001.5 0v-7zm7 0a.75.75 0 00-1.5 0v7a.75.75 0 001.5 0v-7z"></path>
-                        </svg>
+                        <i class="fas fa-microphone" style="font-size:0.8rem;"></i>
                         Voice Input
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/get-reciept">
-                        <svg aria-hidden="true" height="16" viewBox="0 0 16 16" width="16" class="octicon octicon-camera me-1 icon-green">
-                            <path fill-rule="evenodd" d="M15 3H1a1 1 0 00-1 1v10a1 1 0 001 1h14a1 1 0 001-1V4a1 1 0 00-1-1zM2 5a1 1 0 011-1h10a1 1 0 011 1v6a1 1 0 01-1 1H3a1 1 0 01-1-1V5zM8 7a2 2 0 100-4 2 2 0 000 4z"></path>
-                        </svg>
+                        <i class="fas fa-camera" style="font-size:0.8rem;"></i>
                         Capture Receipt
                     </a>
                 </li>
                 <% } %>
             </ul>
 
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-center gap-2">
                 <li class="nav-item">
-                    <button id="theme-toggle" class="btn btn-outline-secondary me-2" aria-label="Toggle theme">
+                    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light mode">
                         <i class="fas fa-moon"></i>
                     </button>
                 </li>
+
                 <% if(currentUser){ %>
                 <li class="nav-item d-lg-none">
-                    <button class="btn btn-outline-secondary" id="sidebarToggle" aria-label="Toggle sidebar">
-                        <svg aria-hidden="true" height="20" viewBox="0 0 16 16" width="20" class="octicon octicon-three-bars icon-green">
-                            <path fill-rule="evenodd" d="M1 3h14v2H1V3zm0 4h14v2H1V7zm0 4h14v2H1v-2z"></path>
-                        </svg>
+                    <button id="sidebarToggle" aria-label="Open sidebar">
+                        <i class="fas fa-bars" style="font-size:0.875rem;"></i>
                     </button>
                 </li>
-
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <svg aria-hidden="true" height="20" viewBox="0 0 16 16" width="20" class="octicon octicon-person me-1 icon-green">
-                            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zM8 8a3 3 0 100-6 3 3 0 000 6z"></path>
-                        </svg>
-                        <span><%= currentUser.username %></span>
+                    <a class="user-nav-btn dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="user-avatar">
+                            <%= currentUser.username.charAt(0).toUpperCase() %>
+                        </div>
+                        <span class="d-none d-sm-inline"><%= currentUser.username %></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                        <li><a class="dropdown-item" href="/goals">
-                            <i class="fas fa-bullseye me-2 text-success"></i>Goals
-                        </a></li>
-                        <li><a class="dropdown-item" href="/form/favorites">
-                            <i class="fas fa-star me-2 text-warning"></i>Favourites
-                        </a></li>
-
-                <form action="/delete-account?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
-                    <button type="submit" class="dropdown-item">
-                        <i class="fas fa-trash-alt me-2 text-danger"></i> Delete Account
-                    </button>
-                </form>
-
+                        <li>
+                            <div style="padding: 12px 14px 8px; border-bottom: 1px solid var(--border); margin-bottom: 6px;">
+                                <div style="font-weight: 700; font-size: 0.875rem; color: var(--text-heading);"><%= currentUser.firstName %> <%= currentUser.lastName %></div>
+                                <div style="font-size: 0.75rem; color: var(--text-muted);">@<%= currentUser.username %></div>
+                            </div>
+                        </li>
+                        <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-circle" style="color: var(--primary); width:16px;"></i> Profile</a></li>
+                        <li><a class="dropdown-item" href="/goals"><i class="fas fa-bullseye" style="color: var(--primary); width:16px;"></i> Goals</a></li>
+                        <li><a class="dropdown-item" href="/form/favorites"><i class="fas fa-star" style="color: var(--accent); width:16px;"></i> Favourites</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                        <li>
+                            <form action="/delete-account?_method=DELETE" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+                                <button type="submit" class="dropdown-item text-danger"><i class="fas fa-trash-alt" style="width:16px;"></i> Delete Account</button>
+                            </form>
+                        </li>
+                        <li><a class="dropdown-item text-danger" href="/logout"><i class="fas fa-sign-out-alt" style="width:16px;"></i> Logout</a></li>
                     </ul>
                 </li>
                 <% } else { %>
                 <li class="nav-item">
-                    <a href="/login" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="/register" class="btn btn-success">Register</a>
+                    <a href="/login" class="nav-auth-login me-1">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="nav-auth-register">Get Started</a>
                 </li>
                 <% } %>
             </ul>
         </div>
     </div>
 </nav>
-
-<style>
-  .icon-green path {
-    fill: green;
-  }
-</style>

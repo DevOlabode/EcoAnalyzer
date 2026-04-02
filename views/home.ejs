@@ -2,11 +2,53 @@
 
 <!-- Hero Section -->
 <section class="hero-section">
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title">AI Environmental Impact Analyzer</h1>
-            <p class="hero-subtitle text-white opacity-50">Analyze the environmental footprint of your products with cutting-edge AI technology. Make informed decisions for a sustainable future.</p>
-            <a href="/form" class="hero-btn">Get Started</a>
+    <div class="hero-content animate-fadeInUp">
+        <div class="hero-eyebrow">
+            <i class="fas fa-leaf"></i>
+            AI-Powered Eco Intelligence
+        </div>
+        <h1 class="hero-title">
+            Analyze Your Products'<br>
+            <span class="accent">Environmental Impact</span>
+        </h1>
+        <p class="hero-subtitle">
+            Make smarter, greener purchasing decisions with AI-driven sustainability scores,
+            carbon footprint analysis, and actionable eco recommendations.
+        </p>
+        <div class="hero-actions">
+            <% if(!currentUser){ %>
+            <a href="/register" class="hero-btn-primary">
+                <i class="fas fa-rocket"></i>
+                Start for Free
+            </a>
+            <a href="/login" class="hero-btn-secondary">
+                <i class="fas fa-sign-in-alt"></i>
+                Sign In
+            </a>
+            <% } else { %>
+            <a href="/form" class="hero-btn-primary">
+                <i class="fas fa-plus"></i>
+                Analyze a Product
+            </a>
+            <a href="/dashboard" class="hero-btn-secondary">
+                <i class="fas fa-chart-bar"></i>
+                View Dashboard
+            </a>
+            <% } %>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value">10K+</div>
+                <div class="hero-stat-label">Products Analyzed</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">95%</div>
+                <div class="hero-stat-label">Accuracy Rate</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">50+</div>
+                <div class="hero-stat-label">Eco Metrics</div>
+            </div>
         </div>
     </div>
 </section>
@@ -14,40 +56,71 @@
 <!-- Features Section -->
 <section class="features-section">
     <div class="container">
-        <h2 class="text-center mb-5" style="color: var(--primary-color); font-weight: bold;">Why Choose Our Analyzer?</h2>
+        <div class="features-header">
+            <div class="section-eyebrow">
+                <i class="fas fa-star"></i>
+                Why EcoAnalyzer
+            </div>
+            <h2 class="section-title">Everything you need for<br>sustainable decisions</h2>
+            <p class="section-subtitle">Comprehensive environmental intelligence powered by cutting-edge AI to help you and your organization go green.</p>
+        </div>
         <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-robot"></i>
+            <div class="feature-card animate-fadeInUp delay-100">
+                <div class="feature-icon-wrap">
+                    <i class="fas fa-brain"></i>
                 </div>
                 <h3 class="feature-title">AI-Powered Analysis</h3>
-                <p class="feature-description">Leverage advanced machine learning algorithms to get accurate environmental impact assessments for your products.</p>
+                <p class="feature-description">Our advanced AI engine delivers comprehensive environmental impact assessments for any product in seconds.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
+            <div class="feature-card animate-fadeInUp delay-200">
+                <div class="feature-icon-wrap">
                     <i class="fas fa-leaf"></i>
                 </div>
-                <h3 class="feature-title">Sustainability Focus</h3>
-                <p class="feature-description">Promote eco-friendly practices by understanding carbon footprint, water usage, and recyclability of your products.</p>
+                <h3 class="feature-title">Sustainability Scoring</h3>
+                <p class="feature-description">Understand carbon footprint, water usage, and recyclability with clear, actionable sustainability scores.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
+            <div class="feature-card animate-fadeInUp delay-300">
+                <div class="feature-icon-wrap">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3 class="feature-title">Product Comparison</h3>
+                <p class="feature-description">Side-by-side environmental comparisons help you choose the most eco-friendly option every time.</p>
+            </div>
+            <div class="feature-card animate-fadeInUp delay-100">
+                <div class="feature-icon-wrap">
                     <i class="fas fa-chart-line"></i>
                 </div>
-                <h3 class="feature-title">Detailed Insights</h3>
-                <p class="feature-description">Get comprehensive reports with sustainability scores and actionable recommendations for improvement.</p>
+                <h3 class="feature-title">Impact Dashboard</h3>
+                <p class="feature-description">Track your sustainability journey with beautiful visualizations and detailed impact reports over time.</p>
+            </div>
+            <div class="feature-card animate-fadeInUp delay-200">
+                <div class="feature-icon-wrap">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h3 class="feature-title">Voice Input</h3>
+                <p class="feature-description">Analyze products hands-free with our intelligent voice recognition — just speak and get results.</p>
+            </div>
+            <div class="feature-card animate-fadeInUp delay-300">
+                <div class="feature-icon-wrap">
+                    <i class="fas fa-camera"></i>
+                </div>
+                <h3 class="feature-title">Receipt Capture</h3>
+                <p class="feature-description">Snap a photo of any receipt to instantly analyze the environmental impact of your purchases.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Call to Action Section -->
+<!-- CTA Section -->
 <% if(!currentUser){ %>
-    <section class="mb-5" style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); color: white; padding: 60px 0; text-align: center;">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Make a Difference?</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 30px;" class="text-white opacity-50">Start analyzing your products today and contribute to a greener planet.</p>
-            <a href="/register" class="btn btn-light mb-5" style="padding: 15px 30px; border-radius: 50px; font-weight: 600; text-decoration: none;">Sign Up Now</a>
-        </div>
-    </section>
-    <% } %>
+<section class="cta-section">
+    <div class="cta-content">
+        <h2 class="cta-title">Ready to Make a Difference?</h2>
+        <p class="cta-subtitle">Join thousands of eco-conscious users analyzing their environmental impact today.</p>
+        <a href="/register" class="hero-btn-primary" style="display:inline-flex;">
+            <i class="fas fa-rocket"></i>
+            Get Started — It's Free
+        </a>
+    </div>
+</section>
+<% } %>

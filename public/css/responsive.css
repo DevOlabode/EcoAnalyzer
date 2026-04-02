@@ -1,110 +1,65 @@
-/* Responsive Design */
+/* ============================================================
+   EcoAnalyzer — Responsive
+   ============================================================ */
+
+@media (max-width: 1200px) {
+    .container { padding: 0 20px; }
+}
+
+@media (max-width: 992px) {
+    .hero-title { font-size: 3rem; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .show-row { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
+    body { font-size: 14px; }
 
-    .hero-subtitle {
-        font-size: 1.2rem;
-    }
+    .hero-section { padding: 60px 20px; }
+    .hero-title { font-size: 2.25rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .hero-btn-primary, .hero-btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+    .hero-stats { gap: 24px; }
 
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { padding: 24px; }
 
-    .show-row {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+    .form-container { padding: 0 16px; }
+    .auth-card { padding: 28px 24px; }
 
-    .show-actions {
-        flex-direction: column;
-        align-items: center;
-    }
+    .show-body { padding: 24px; }
+    .show-header { padding: 32px 24px; }
 
-    .form-container {
-        padding: 30px;
-        margin: 30px;
-    }
+    .profile-header { flex-direction: column; text-align: center; }
+    .profile-content { grid-template-columns: 1fr; }
+    .profile-actions { grid-column: span 1; flex-direction: column; }
 
-    .show-body {
-        padding: 30px;
-    }
+    .product-selection { grid-template-columns: 1fr; }
+    .result-grid { grid-template-columns: 1fr; }
 
-    .show-header {
-        padding: 30px;
-    }
+    .dashboard-container { padding: 20px; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
 
-    .show-title {
-        font-size: 2.5rem;
-    }
+    .receipt-card { padding: 32px 24px; }
+
+    .footer-modern { padding: 40px 0 24px; }
+    .footer-modern .row > div { margin-bottom: 32px; }
 }
 
 @media (max-width: 480px) {
-    .hero-section {
-        padding: 80px 0;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .container {
-        padding: 0 15px;
-    }
-
-    .navbar-nav .nav-link {
-        padding: 10px 15px;
-    }
-
-    .form-container {
-        padding: 20px;
-        margin: 20px;
-    }
+    .hero-title { font-size: 1.875rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+    .auth-card { padding: 24px 20px; }
+    .show-body { padding: 20px; }
+    .show-header { padding: 24px 20px; }
+    .receipt-card { padding: 24px 16px; }
+    .goals-form-card { padding: 24px 20px; }
 }
 
-/* Responsive for Receipt Page */
-@media (max-width: 768px) {
-    .receipt-card {
-        padding: 30px;
-        margin: 20px;
-    }
-
-    .receipt-title {
-        font-size: 2.5rem;
-    }
-
-    .camera-container {
-        margin: 30px 0;
-    }
-
-    .viewfinder {
-        top: 15px;
-        left: 15px;
-        right: 15px;
-        bottom: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .profile-card {
-        padding: 30px 20px;
-    }
-
-    .profile-title {
-        font-size: 2rem;
-    }
-
-    .profile-list li {
-        font-size: 1rem;
-    }
-
-    .avatar-placeholder {
-        width: 100px;
-        height: 100px;
-    }
-
-    .avatar-placeholder i {
-        font-size: 3rem;
-    }
+/* Print */
+@media print {
+    .custom-navbar, #sidebar, .overlay, .footer-modern { display: none !important; }
+    body { padding-top: 0; }
+    .show-container, .dashboard-wrapper { padding: 0; }
 }

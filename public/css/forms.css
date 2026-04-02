@@ -1,112 +1,126 @@
-/* Form Styles */
+/* ============================================================
+   EcoAnalyzer — Forms
+   ============================================================ */
+
 .form-container {
-    max-width: 900px;
+    max-width: 520px;
     margin: 60px auto;
-    background: var(--card-background);
-    border: 1px solid var(--border-color);
-    padding: 48px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    padding: 0 24px;
+}
+
+.auth-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    box-shadow: var(--shadow-lg);
 }
 
 .form-title {
-    color: var(--primary-color);
-    margin-bottom: 32px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-heading);
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
     text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
 }
 
-.form-group {
+.form-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-subtle);
+    font-size: 0.875rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.input-wrapper .form-control {
+    padding-left: 40px;
+}
+
+.form-divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 24px 0;
+}
+
+.form-divider::before, .form-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+.form-divider span { color: var(--text-subtle); font-size: 0.8125rem; font-weight: 500; white-space: nowrap; }
+
+.form-footer-text {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-top: 24px;
+}
+
+.form-footer-text a { color: var(--primary); font-weight: 600; }
+.form-footer-text a:hover { color: var(--primary-dark); text-decoration: underline; }
+
+/* Checkbox & Radio */
+.checkbox-group, .radio-group {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 12px;
+}
+
+.checkbox-group input[type="checkbox"],
+.radio-group input[type="radio"] {
+    width: 18px; height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.error-message { color: var(--danger); font-size: 0.8125rem; margin-top: 5px; }
+.success-message { color: var(--primary); font-size: 0.8125rem; margin-top: 5px; }
+
+.invalid-feedback { color: var(--danger); font-size: 0.8125rem; margin-top: 4px; display: none; }
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-feedback { display: block; }
+
+/* Product Input Form */
+.product-form-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
     margin-bottom: 24px;
 }
 
-.form-label {
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 8px;
-    display: block;
+.product-form-section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
 }
 
-.form-control {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 12px 16px;
-    font-size: 1rem;
-    transition: var(--transition);
-    background: var(--background-color);
-    color: var(--text-primary);
-    width: 100%;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
-    outline: none;
-    background: var(--background-color);
-    color: var(--text-primary);
-}
-
-.form-control::placeholder {
-    color: var(--placeholder-color);
-}
-
-.form-text {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-top: 4px;
-}
-
-.btn-primary {
-    background: var(--gradient-primary);
-    border: none;
-    padding: 12px 32px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    color: white;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.btn-secondary {
-    background: var(--gradient-secondary);
-    border: none;
-    padding: 12px 32px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    color: white;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-}
-
-.checkbox-group, .radio-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 16px;
-}
-
-.checkbox-group input, .radio-group input {
-    margin-right: 8px;
-}
-
-.error-message {
-    color: #dc3545;
-    font-size: 0.875rem;
-    margin-top: 4px;
-}
-
-.success-message {
-    color: var(--primary-color);
-    font-size: 0.875rem;
-    margin-top: 4px;
+.product-form-section-title::before {
+    content: '';
+    width: 3px; height: 16px;
+    background: var(--gradient-brand);
+    border-radius: 2px;
 }

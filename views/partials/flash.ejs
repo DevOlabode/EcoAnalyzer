@@ -1,39 +1,28 @@
-<% if(success && success.length){ %>
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="fas fa-check-circle me-2"></i>
-        <%= success %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-        </button>
+<% if(success && success.length > 0){ %>
+<div class="flash-container" id="flashContainer">
+    <% for(let msg of success){ %>
+    <div class="flash-message success">
+        <i class="fas fa-check-circle flash-icon"></i>
+        <span><%= msg %></span>
+        <button onclick="this.parentElement.remove()" style="margin-left:auto; background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1rem; padding:0 0 0 8px;">&times;</button>
     </div>
+    <% } %>
+</div>
 <% } %>
-
-<% if(error && error.length){ %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <i class="fas fa-exclamation-circle me-2"></i>
-        <%= error %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-        </button>
+<% if(error && error.length > 0){ %>
+<div class="flash-container" id="flashContainer">
+    <% for(let msg of error){ %>
+    <div class="flash-message error">
+        <i class="fas fa-exclamation-circle flash-icon"></i>
+        <span><%= msg %></span>
+        <button onclick="this.parentElement.remove()" style="margin-left:auto; background:none; border:none; color:var(--text-muted); cursor:pointer; font-size:1rem; padding:0 0 0 8px;">&times;</button>
     </div>
+    <% } %>
+</div>
 <% } %>
-
-<% if(warning && warning.length){ %>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <i class="fas fa-exclamation-triangle me-2"></i>
-        <%= warning %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-<% } %>
-
-<% if(info && info.length){ %>
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <i class="fas fa-info-circle me-2"></i>
-        <%= info %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-<% } %>
+<script>
+setTimeout(function() {
+    var fc = document.getElementById('flashContainer');
+    if(fc) fc.style.opacity = '0', fc.style.transition = 'opacity 0.5s', setTimeout(function(){ if(fc) fc.remove(); }, 500);
+}, 4000);
+</script>

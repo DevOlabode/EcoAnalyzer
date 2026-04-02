@@ -1,36 +1,93 @@
-body {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
+/* ============================================================
+   EcoAnalyzer — Impact Dashboard
+   ============================================================ */
+
+.dashboard-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
 }
+
 .dashboard-container {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    padding: 30px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    padding: 32px;
+    margin-bottom: 24px;
 }
-.card {
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+.dashboard-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
 }
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+.dashboard-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.5rem; font-weight: 800;
+    color: var(--text-heading); letter-spacing: -0.03em;
 }
-.card-header {
-    background: linear-gradient(45deg, #28a745, #20c997);
-    color: white;
-    border-radius: 15px 15px 0 0 !important;
-    border: none;
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
 }
-.card-body {
+
+.stat-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
     padding: 20px;
+    transition: var(--transition);
+    position: relative; overflow: hidden;
 }
-h1 {
-    color: #333;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+
+.stat-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--gradient-brand);
+    transform: scaleX(0); transform-origin: left;
+    transition: var(--transition);
 }
+
+.stat-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.stat-card:hover::before { transform: scaleX(1); }
+
+.stat-icon {
+    width: 44px; height: 44px;
+    border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; margin-bottom: 12px;
+}
+
+.stat-icon.green { background: var(--primary-subtle); color: var(--primary); }
+.stat-icon.blue { background: var(--secondary-subtle); color: var(--secondary); }
+.stat-icon.amber { background: var(--accent-subtle); color: var(--accent); }
+.stat-icon.red { background: var(--danger-subtle); color: var(--danger); }
+
+[data-theme="dark"] .stat-icon.green { background: var(--primary-subtle); color: var(--primary-light); }
+[data-theme="dark"] .stat-icon.blue { background: var(--secondary-subtle); color: var(--secondary-light); }
+
+.stat-value { font-size: 1.75rem; font-weight: 800; color: var(--text-heading); letter-spacing: -0.04em; line-height: 1; }
+.stat-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); margin-top: 6px; }
+
+/* Table wrapper */
+.table-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.table-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--bg-alt);
+}
+
+.table-title { font-weight: 700; font-size: 0.9rem; color: var(--text-heading); }
+
+.table-responsive { overflow-x: auto; }

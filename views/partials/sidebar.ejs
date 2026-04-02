@@ -1,0 +1,66 @@
+<div class="sidebar-header">
+    <a href="/" class="sidebar-brand">
+        <div class="sidebar-brand-icon"><i class="fas fa-leaf"></i></div>
+        EcoAnalyzer
+    </a>
+    <button id="sidebarClose" aria-label="Close sidebar">
+        <i class="fas fa-times"></i>
+    </button>
+</div>
+
+<nav class="sidebar-nav">
+    <% if(currentUser){ %>
+    <div class="sidebar-user-info">
+        <div class="sidebar-user-avatar">
+            <%= currentUser.username.charAt(0).toUpperCase() %>
+        </div>
+        <div>
+            <div class="sidebar-user-name"><%= currentUser.firstName %> <%= currentUser.lastName %></div>
+            <div class="sidebar-user-role">@<%= currentUser.username %></div>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="sidebar-section-label">Navigation</div>
+    <a class="nav-link" href="/form/all-products">
+        <i class="fas fa-database"></i> Products
+    </a>
+    <a class="nav-link" href="/dashboard">
+        <i class="fas fa-chart-bar"></i> Impact Dashboard
+    </a>
+    <a class="nav-link" href="/compare">
+        <i class="fas fa-balance-scale"></i> Compare Products
+    </a>
+    <a class="nav-link" href="/voiceInput/ai">
+        <i class="fas fa-microphone"></i> Voice Input
+    </a>
+    <a class="nav-link" href="/get-reciept">
+        <i class="fas fa-camera"></i> Capture Receipt
+    </a>
+
+    <% if(currentUser){ %>
+    <hr>
+    <div class="sidebar-section-label">Account</div>
+    <a class="nav-link" href="/profile">
+        <i class="fas fa-user-circle"></i> Profile
+    </a>
+    <a class="nav-link" href="/goals">
+        <i class="fas fa-bullseye"></i> Goals
+    </a>
+    <a class="nav-link" href="/form/favorites">
+        <i class="fas fa-star"></i> Favourites
+    </a>
+    <hr>
+    <a class="nav-link" href="/logout" style="color:var(--danger);">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+    <% } else { %>
+    <hr>
+    <a class="nav-link" href="/login">
+        <i class="fas fa-sign-in-alt"></i> Sign In
+    </a>
+    <a class="nav-link" href="/register">
+        <i class="fas fa-user-plus"></i> Register
+    </a>
+    <% } %>
+</nav>

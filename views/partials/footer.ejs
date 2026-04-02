@@ -1,70 +1,57 @@
-<footer class="footer-modern" style="border-radius: 5px;">
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Brand Section -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="footer-brand">
-                    <img src="https://trityenviro.com/assets/setting/environmental-impact-assessment-eia-online1.png" alt="Logo" width="40" height="40" class="me-3" style="border-radius: 50%;">
-                    <h5 class="footer-text mb-3">EcoAnalyzer</h5>
-                    <p class="footer-text mb-3">Making sustainable choices easier with AI-powered environmental impact analysis.</p>
-                    <div class="social-links">
-                        <div class="footer-text opacity-50 mb-2">For Feedback, you can reach me on :</div>
-
-                        <div>
-                            <a href="https://www.facebook.com/olabode.samuel.956694/" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://x.com/DevOlabode" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.instagram.com/devolabode/?__pwa=1" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/samuelolabode/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+<footer class="footer-modern">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <div style="width:36px;height:36px;background:var(--gradient-brand);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;">
+                        <i class="fas fa-leaf"></i>
                     </div>
+                    <span class="footer-brand-name">EcoAnalyzer</span>
+                </div>
+                <p class="footer-brand-desc">AI-powered environmental impact analysis for sustainable product decisions. Making green choices easier.</p>
+                <div class="social-links mt-3">
+                    <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 </div>
             </div>
-
-            <!-- Quick Links -->
-            <div class="col-lg-3 col-md-6 mb-4">
-                <h6 class="footer-heading">Quick Links</h6>
+            <div class="col-lg-2 col-md-6 col-6">
+                <h6 class="footer-heading">Product</h6>
                 <ul class="footer-links">
-                    <li><a href="/" class="footer-link">Home</a></li>
-                    <li><a href="/form/all-products" class="footer-link">All Products</a></li>
-                    <li><a href="/form" class="footer-link">Analyze Product</a></li>
-                    <li><a href="/about" class="footer-link">About Us</a></li>
+                    <li><a href="/form/all-products" class="footer-link">Products</a></li>
+                    <li><a href="/dashboard" class="footer-link">Dashboard</a></li>
+                    <li><a href="/compare" class="footer-link">Compare</a></li>
+                    <li><a href="/goals" class="footer-link">Goals</a></li>
                 </ul>
             </div>
-
-            <!-- Support -->
-            <div class="col-lg-3 col-md-6 mb-4 d-none d-md-block">
-                <h6 class="footer-heading">Support</h6>
+            <div class="col-lg-2 col-md-6 col-6">
+                <h6 class="footer-heading">Company</h6>
                 <ul class="footer-links">
-                    <li><a href="/help-center" class="footer-link">Help Center</a></li>
-                    <li><a href="/contact-us" class="footer-link">Contact Us</a></li>
-                    <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
-                    <li><a href="/terms-of-service" class="footer-link">Terms of Service</a></li>
+                    <li><a href="/about" class="footer-link">About</a></li>
+                    <li><a href="/contact" class="footer-link">Contact</a></li>
+                    <li><a href="/help" class="footer-link">Help Center</a></li>
                 </ul>
             </div>
-
-            <!-- Feedback -->
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-4 col-md-6">
                 <h6 class="footer-heading">Share Your Feedback</h6>
-                <p class="footer-text mb-3 opacity-50">Help us improve EcoAnalyzer by sharing your thoughts and suggestions.</p>
-
+                <p class="footer-text mb-3">Help us improve EcoAnalyzer by sharing your thoughts.</p>
                 <form action="/feedback" method="post" class="needs-validation" novalidate>
                     <input type="hidden" name="returnTo" value="<%= currentUrl || '/' %>">
-                    <textarea class="form-control mb-2" name = "feedback" placeholder="Your feedback here..." rows="5" aria-label="Feedback" style="border-radius: 5px;" required></textarea>
-                    <button class="btn btn-primary btn-sm" type="submit">Send Feedback</button>
+                    <textarea class="form-control mb-2" name="feedback" placeholder="Your feedback..." rows="3" required style="font-size:0.875rem;"></textarea>
+                    <button class="btn btn-primary btn-sm w-100" type="submit">
+                        <i class="fas fa-paper-plane me-1"></i> Send Feedback
+                    </button>
                 </form>
             </div>
         </div>
-
-
         <hr class="footer-divider">
-
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <p class="footer-legal mb-0">&copy; 2025 EcoAnalyzer, Inc. All rights reserved.</p>
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+            <p class="footer-legal mb-0">&copy; 2025 EcoAnalyzer, Inc. All rights reserved.</p>
+            <div class="d-flex gap-3 flex-wrap">
+                <a href="/privacy-policy" class="footer-legal" style="text-decoration:none;">Privacy Policy</a>
+                <a href="/terms-of-service" class="footer-legal" style="text-decoration:none;">Terms of Service</a>
             </div>
-            <div class="col-md-6 text-md-end">
-                <p class="footer-legal mb-0">Made with <i class="fas fa-heart text-danger"></i> for a sustainable future</p>
-            </div>
+            <p class="footer-legal mb-0">Made with <i class="fas fa-heart" style="color:var(--danger);animation:heartbeat 2s ease-in-out infinite;"></i> for a sustainable future</p>
         </div>
     </div>
 </footer>

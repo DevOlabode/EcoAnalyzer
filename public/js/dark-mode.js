@@ -1,28 +1,29 @@
-// Dark Mode Toggle Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-
-    // Apply the saved theme on load
-    applyTheme(currentTheme);
-
-    // Toggle theme on button click
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
+// Dark Mode Toggle
+(function() {
+    var html = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+    var saved = localStorage.getItem('eco-theme') || 'light';
+    html.setAttribute('data-theme', saved);
+    updateIcon(saved);
+    if (btn) {
+        btn.addEventListener('click', function() {
+            var current = html.getAttribute('data-theme');
+            var next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('eco-theme', next);
+            updateIcon(next);
         });
     }
-});
-
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        if (icon) {
-            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    function updateIcon(theme) {
+        if (!btn) return;
+        var icon = btn.querySelector('i');
+        if (!icon) return;
+        if (theme === 'dark') {
+            icon.className = 'fas fa-sun';
+            btn.title = 'Switch to light mode';
+        } else {
+            icon.className = 'fas fa-moon';
+            btn.title = 'Switch to dark mode';
         }
     }
-}
+})();

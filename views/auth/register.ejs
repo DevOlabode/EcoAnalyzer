@@ -1,87 +1,75 @@
 <% layout('layout/boilerplate.ejs') %>
 
-<div class="form-container">
-    <h1 class="form-title">
-        <i class="fas fa-user-plus me-2"></i>Join EcoAnalyzer
-    </h1>
-    <p class="text-center text-muted mb-4">Create your account to start analyzing environmental impact</p>
-
-    <form action="/register" method="post" class="needs-validation" novalidate>
-        <div class="mb-3">
-            <label for="firstName" class="form-label">
-                <i class="fas fa-user me-1"></i>First Name
-            </label>
-            <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Enter your first name" required>
-            <div class="invalid-feedback">
-                Please provide a valid name
+<div class="form-container" style="max-width:560px;">
+    <div class="auth-card">
+        <div style="text-align:center; margin-bottom:32px;">
+            <div style="width:56px;height:56px;background:var(--gradient-brand);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;margin:0 auto 16px;box-shadow:0 4px 16px rgba(22,163,74,0.3);">
+                <i class="fas fa-leaf"></i>
             </div>
+            <h1 class="form-title">Join EcoAnalyzer</h1>
+            <p class="form-subtitle">Create your free account and start analyzing environmental impact</p>
         </div>
 
-        <div class="mb-3">
-            <label for="lastName" class="form-label">
-                <i class="fas fa-user me-1"></i>Last Name
-            </label>
-            <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Enter Your Last Name" required>
-            <div class="invalid-feedback">
-                Please provide a valid name.
+        <form action="/register" method="post" class="needs-validation" novalidate>
+            <div class="row g-3">
+                <div class="col-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" id="firstName" placeholder="First name" required>
+                    <div class="invalid-feedback">Required.</div>
+                </div>
+                <div class="col-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" name="lastName" class="form-control" id="lastName" placeholder="Last name" required>
+                    <div class="invalid-feedback">Required.</div>
+                </div>
             </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="username" class="form-label">
-                <i class="fas fa-user me-1"></i>Username
-            </label>
-            <input type="text" name="username" class="form-control" id="username" placeholder="Choose a username" required>
-            <div class="invalid-feedback">
-                Please provide a valid username.
+            <div class="form-group mt-3">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Choose a username" required>
+                    <div class="invalid-feedback">Please choose a username.</div>
+                </div>
             </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label">
-                <i class="fas fa-envelope me-1"></i>Email Address
-            </label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
-            <div class="invalid-feedback">
-                Please provide a valid email address.
+            <div class="form-group">
+                <label for="email" class="form-label">Email Address</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    <div class="invalid-feedback">Please provide a valid email.</div>
+                </div>
             </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label">
-                <i class="fas fa-envelope me-1"></i>Location
-            </label>
-            <input type="text" name="location[city]" id="city" class="form-control" placeholder="Enter your city" >
-            <div class="invalid-feedback">
-                Please provide a valid city.
+            <div class="form-group">
+                <label class="form-label">Location <span style="color:var(--text-subtle);font-weight:400;">(optional)</span></label>
+                <div class="row g-2">
+                    <div class="col-6">
+                        <input type="text" name="location[city]" id="city" class="form-control" placeholder="City">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="location[country]" id="country" class="form-control" placeholder="Country">
+                    </div>
+                </div>
             </div>
-            <input type="text"  name="location[country]" id="country" class="form-control mt-2" placeholder="Enter your country">
-            <div class="invalid-feedback">
-                Please provide a valid country.
+            <div class="form-group">
+                <label for="bio" class="form-label">Bio <span style="color:var(--text-subtle);font-weight:400;">(optional)</span></label>
+                <textarea name="bio" id="bio" class="form-control" placeholder="A little about yourself..." rows="2"></textarea>
             </div>
-        </div>
-
-        <div class="mb-3">
-            <label for="bio" class="form-label">Bio</label>
-            <textarea name="bio" id="bio" class="form-control" placeholder="A little bio about yourself"></textarea>
-        </div>
-
-        <div class="mb-4">
-            <label for="password" class="form-label">
-                <i class="fas fa-lock me-1"></i>Password
-            </label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Create a password" required>
-            <div class="invalid-feedback">
-                Please provide a password.
+            <div class="form-group">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Create a strong password" required>
+                    <div class="invalid-feedback">Please create a password.</div>
+                </div>
             </div>
+            <button type="submit" class="btn btn-primary w-100 btn-lg mt-2">
+                <i class="fas fa-user-plus"></i>
+                Create Account
+            </button>
+        </form>
+
+        <div class="form-footer-text">
+            Already have an account? <a href="/login">Sign in here</a>
         </div>
-
-        <button type="submit" class="btn btn-primary w-100">
-            <i class="fas fa-user-plus me-2"></i>Create Account
-        </button>
-    </form>
-
-    <div class="text-center mt-4">
-        <p class="mb-0">Already have an account? <a href="/login" class="text-decoration-none">Sign in here</a></p>
     </div>
 </div>
